@@ -1,0 +1,112 @@
+// Place all the styles related to the Articles controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*-------FILES TO LOOK AT-------*/
+/*1. Gemfile
+2. app/views/articles/index.html.erb*/
+
+
+/*-------HOW TO MAKE IT WORK-------*/
+/*1. ADD gem 'compass-rails' TO GEM FILE
+2. ADD @import "compass" TO THE TOP OF YOUR SCSS PAGE
+3. ADD ANY IMAGES TO app/assets/images folder
+4.START YOUR SERVER
+5.OPEN A NEW TERMINAL SHELL AND RUN $compass watch
+6.STYLE THE SHIT OUTTA YOUR PROJECT*/
+
+
+
+
+
+@import "compass";
+/*the last number is for alpha/opasity from 0-1*/
+$purpleDark: rgba(93, 41, 113,1);
+$purple: rgba(93, 41, 113,0.2);
+$green: rgba(49, 79, 0, 1);
+$yellow: rgba(170, 153, 57, 1);
+$hugeFont:4em;
+$realBigFont: 3em;
+$bigFont: 2em;
+$midFont: 1.5em;
+
+
+body {
+  background-color:$purple;
+
+}
+
+/*animation i'm still trying to figure out how to do them with sass and compass*/
+.heading{
+  font-size: $hugeFont;
+  color:$yellow;
+  animation-name: headingstuff;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes headingstuff {
+    0%   {color: $purpleDark;}
+    25%  {color: $green;}
+    50%  {color: $yellow;}
+    100% {color: $purpleDark;}
+}
+
+
+
+.yoVendorPrefix{
+background-color: $green;
+width:100px;
+height:50px;
+
+/*THIS IS REGULAR CSS BUT IT WOULD NOT RENDER CORRECTLY IN SOME BROWSERS*/
+/*transition: width 2s, height 4s;*/
+
+/*THIS IS COMPASS CSS*/
+@include transition(width 4s, height 4s);
+
+ /* THE ABOVE CODE COMPILES TO THIS*/
+/*  -moz-transition: width 4s, height 4s;
+  -o-transition: width 4s, height 4s;
+  -webkit-transition: width 4s, height 4s;
+  transition: width 4s, height 4s;*/
+}
+
+.yoVendorPrefix:hover{
+width:1000px;
+height:100px;
+}
+
+.gameOfT{
+  margin-top: 20px;
+  /*put images in app/assets/images folder, and use this image-url helper*/
+  background: image-url('htmlCss.jpg');
+  background-size: cover;
+  width:220px;
+  height:200px;
+}
+
+.artNewLink{
+  font-size:$realBigFont;
+}
+.headTitle{
+  font-size:$bigFont;
+  color:$green;
+}
+.headText{
+  font-size:$bigFont;
+  color:$green;
+}
+
+.artTitle{
+  font-size:$midFont;
+}
+
+.artText{
+  font-size:$midFont;
+}
+
+.link{
+  font-size:$midFont;
+}
